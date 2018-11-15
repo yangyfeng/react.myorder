@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import OrderItem from './../OrderItem'
+import data from './orders.json'
 class OrderList extends Component {
     constructor(props) {
         super()
         this.state = {
-            data: []
+            data: data
         }
     }
     handleOnSubmit = (id, stars, comment) => {
@@ -25,15 +26,15 @@ class OrderList extends Component {
     }
 
     componentDidMount() {
-        fetch('./mock/orders.json').then(res => {
-            if (res.ok) {
-                res
-                    .json()
-                    .then(data => {
-                        this.setState({data: data})
-                    })
-            }
-        })
+        // fetch('./mock/orders.json').then(res => {
+        //     if (res.ok) {
+        //         res
+        //             .json()
+        //             .then(data => {
+        //                 this.setState({data: data})
+        //             })
+        //     }
+        // })
     }
     render() {
         let {data} = this.state
